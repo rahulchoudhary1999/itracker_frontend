@@ -1,0 +1,61 @@
+
+<body>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle();">
+                menu
+            </mat-icon>
+        </button>
+        <h1><img width="140" src="assets/logo.jpg"></h1>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side">
+        <mat-nav-list>
+            <ul>
+                <li> <a role="button"> <i class="fas fa-qrcode"> </i> Dashboard</a></li>
+                <li> <a role="button"> <i class="fas fa-calendar-week"> </i> My Profile</a></li>
+                <li> <a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View Slots</a></li>
+                <li> <a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
+                        Interview</a></li>
+                <li> <a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
+                        Applicants</a></li>
+                <li> <a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i> Feedbacks</a></li>
+                <li> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></li>
+                <li> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></li>
+
+            </ul>
+        </mat-nav-list>
+    
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+        <div style="height: 180vh;"></div>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+<div id="content">
+<div *ngIf="getview_slots()">
+    <app-interview-list></app-interview-list>
+</div>
+<div *ngIf="getview_applicants()">
+    <app-candidate-list></app-candidate-list>
+</div>
+<div *ngIf="getsceduleinterview()">
+   
+    <app-schedule-interview></app-schedule-interview>
+</div>
+<div *ngIf="getjobs()">
+    <p></p>
+    <app-jobs></app-jobs>
+</div>
+<div *ngIf="getfeedback()">
+    <p></p>
+    <app-feedback></app-feedback>
+</div>
+
+</div>
+</body>
+

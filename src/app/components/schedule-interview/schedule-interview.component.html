@@ -1,0 +1,43 @@
+<body>
+<div>
+    <div class="container">
+        <div  class="row justify-content-center align-items-center">
+            <div  class="col-md-6">
+                <div  class="col-md-12" >
+                 <form> 
+                     <div>
+                         <h1> Schedule an Interview</h1>
+                     </div>
+                     
+                    
+                     <div class="form-group">
+                        <label><h2>Enter Candidate Id </h2></label>
+                        <input type="text" class="form-control" id="candidateId" name="candidateId" placeholder="Enter Candidate Id"  required minlength="1" #input1 [(ngModel)]="interview.candidateId">
+                     </div>
+                     <div class="form-group">
+                        <label><h2>Enter Employee Id</h2></label>
+                        <input type="text" class="form-control"  id="empId" name="empId" placeholder="Enter Employee Id" #input2 [(ngModel)]="interview.empId">
+                     </div>
+                     <div class="form-group">
+                        <label><h2>Select Date</h2></label>
+                        <input type="date" class="form-control"  id="date" name="date"  #input3 [(ngModel)]="interview.date">
+                     </div>
+                     <div class="form-group">
+                        <label><h2>Select Time</h2></label>
+                        <input type="time" step="1"  class="form-control"  id="time" name="time" #input4 [(ngModel)]="interview.time">
+                     </div>
+                   
+                    <p></p>
+                     <h1>
+                         <button type="submit" class="button" (click)="addinterview()">Schedule</button>
+                     </h1>
+                     <p id="show_success"> </p>
+                  </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+ 
+</body>

@@ -1,0 +1,20 @@
+nav{
+    background-color: aqua;
+    align-content: center;
+}
+button{
+    background-color: white;
+    border-radius: 5px;
+    border: 300px;
+   border-style: solid;
+    border-color:brown;
+    border-width: 2px;
+}
+input {
+    border: solid;
+    border-color: lightgray;
+    border-radius: 7px;
+    border-width: 2px;
+}
+
+

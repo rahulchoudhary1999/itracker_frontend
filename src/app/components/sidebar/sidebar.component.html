@@ -1,0 +1,69 @@
+
+
+<!--<body>
+    
+    <button id="check"></button>
+    <label for="check">
+        <i id="btn" class="fas fa-bars"></i>
+        <i id="cancel" class="fas fa-times"></i>
+    </label>
+    
+    <div class="container-fluid">
+        <div class="sidebar">
+
+
+            <ul>
+                <li> <a role="button"> <i class="fas fa-qrcode"> </i> Dashboard</a></li>
+                <li> <a role="button"> <i class="fas fa-calendar-week"> </i> My Profile</a></li>
+                <li> <a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View Slots</a></li>
+                <li> <a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
+                        Interview</a></li>
+                <li> <a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
+                        Applicants</a></li>
+                <li> <a role="button"> <i class="fas fa-calendar-week"> </i> Sign Out</a></li>
+
+            </ul>
+
+        </div>
+        <div *ngIf="getview_slots()">
+            <app-interview-list></app-interview-list>
+        </div>
+        <div *ngIf="getview_applicants()">
+            <app-candidate-list></app-candidate-list>
+        </div>
+        <div *ngIf="getsceduleinterview()">
+            <p></p>
+            <app-schedule-interview></app-schedule-interview>
+        </div>
+
+    </div>
+
+</body>-->
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <ul>
+        <li> <a role="button"> <i class="fas fa-qrcode"> </i> Dashboard</a></li>
+        <li> <a role="button"> <i class="fas fa-calendar-week"> </i> My Profile</a></li>
+        <li> <a role="button" > <i class="fas fa-calendar-week"> </i> View Slots</a></li>
+        <li> <a role="button" > <i class="fas fa-calendar-week"></i>Schedule
+                Interview</a></li>
+        <li> <a role="button" > <i class="fas fa-calendar-week"> </i> View
+                Applicants</a></li>
+        <li> <a role="button" > <i class="fas fa-calendar-week"> </i> Feedbacks</a></li>
+        <li> <a role="button" > <i class="fas fa-calendar-week"> </i>Jobs</a></li>
+        <li> <a role="button"> <i class="fas fa-calendar-week"> </i> Sign Out</a></li>
+
+    </ul>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+
+</mat-drawer-container>

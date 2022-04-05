@@ -1,0 +1,96 @@
+<div class="container" id="main-container">
+    <div class="card"> 
+        <div class="card-body">
+            <div class="float-right btn-group btn-group-sm">
+                <button class="btn btn-secondary tooltips" data-placement="top" data-toggle="modal" data-original-title="Add" data-target ="#addSkillModal" type="button"
+                (click)="onOpenModal(skill, 'add')"><i class="fa fa-times">Add Skill</i></button>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <!-- <th>EmployeeId</th> -->
+                    <!-- <th>SkillId</th> -->
+                    <th>SkillName</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let skill of skills">
+                        <!-- <td>{{skill.employeeId}}</td> -->
+                        <!-- <td>{{skill.skillId}}</td> -->
+                        <td>{{skillsAvailable[skill.skillId-1].skill}}</td> 
+                        <div class="card-body">
+                            <div class="float-right btn-group btn-group-sm">
+                                <button class="btn btn-secondary tooltips" data-placement="top" data-toggle="modal" datat-target ="#deleteSkillModal" data-original-title="Delete" type="button"
+                                (click)="onOpenModal(skill,'delete')"><i class="fa fa-times">Delete</i></button>
+                            </div>
+                        </div>    
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <table class="table table-striped">
+                <thead>
+                    <th>SkillId</th>
+                    <th>SkillName</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ski of skillsAvailable">
+                        <td>{{ski.skillId}}</td>
+                        <td>{{ski.skill}}</td> 
+                    </tr>
+                </tbody>
+            </table> -->
+           </div>
+        </div>
+
+            <div class="modal fade" id="addSkillModal" tabindex="-1" role="dialog" aria-labelledby="addSkillModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="addSkillModalLabel">Add Skill</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        <form #addSkillForm="ngForm" (ngSubmit)="onAddSkill(addSkillForm)">
+                        <div class="form-group">
+                           <label for="emp_id">employeeId</label>
+                           <input type="text" ngModel name="employeeId" class="form-control" id="emp_id" placeholder="emp_id" required>
+                        </div>
+                        <div class="form-group">
+                           <label for="skillId">skillName</label>
+                           <!-- <input type="text" ngModel name="skillName" id="skillName"> -->
+                           <select class ="form-control" ngModel name="skillId" required>
+                         <option  *ngFor ="let skillname of skillsAvailable" value={{skillname.skillId}}>{{skillname.skill}}</option> 
+                           </select>
+                        </div>
+                        <!-- <div class="form-group">
+                           <label for="Skill_Name">skillName</label>
+                           <input type="text" ngModel name="skillName" class="form-control" id="Skill_Name" placeholder="skillName" required>
+                        </div> -->
+                        <div class="modal-footer">
+                           <!-- <button type="button" id="add-employee-form" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                           <button [disabled]="addSkillForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                        </div>
+                        </form>
+                        </div>
+                     </div>
+                  </div>
+                </div>
+        <div class="modal fade" id="deleteSkillModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <p>Are you sure you want to delete this skill {{deleteSkill?.skillName}}?</p>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button (click)="onDeleteSkill(deleteSkill?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+          </div>

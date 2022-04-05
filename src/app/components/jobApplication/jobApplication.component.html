@@ -1,0 +1,56 @@
+<body class="home">
+    <p class="heading"> Jobs </p>
+    <table class="input">
+        <tr>
+            <td>
+                <mat-form-field class="input-field" appearance="outline" color="primary">
+                    <mat-label>Job ID</mat-label>
+                    <input #jobId matInput type="text" (keyup)="getJobId(jobId.value)">
+                    <mat-hint align="end"> Optional</mat-hint>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field #role appearance="outline">
+                    <mat-label>Position</mat-label>
+                    <select (change)="selectChangeHandler($event)" matNativeControl required>
+                        <option value="All">All</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="Senior Software Engineer">Senior Software Engineer</option>
+                        <option value="Human Resource">Human Resource </option>
+                        <option value="Technical Delivery Manager">Technical Delivery Manager</option>
+                    </select>
+                </mat-form-field>
+            </td>
+            <td>
+                <button class="search-btn" mat-raised-button color="primary" (click)="searchBtn()">
+                    Search
+                    <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <hr noshade>
+
+    <table class="job" >
+        <thead class="table-heading"> 
+            <tr>
+                <th> Job Id </th>
+                <th> Position </th>
+                <th> Description </th>
+                <th> Skills Required </th>
+                <th> Openings </th>
+
+            </tr>
+        </thead>
+        <tr *ngFor="let ja of jobApplication | paginate:{itemsPerPage:2,currentPage:p};">
+            <td>{{ja.jobId}}</td>
+            <td>{{ja.role}}</td>
+            <td>{{ja.description}}</td>
+            <td>{{ja.skillsRequired}}</td>
+            <td>{{ja.vacancies}}</td>
+        </tr>
+        <pagination-controls (pageChange) = " p = $event"></pagination-controls>
+    </table>
+
+</body>

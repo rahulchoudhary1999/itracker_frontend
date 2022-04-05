@@ -1,0 +1,31 @@
+<div class="container" id="show">
+    <h1>All Interview Slots</h1>
+    <table class="table table-bordered">
+         <thead>
+         <tr>
+            
+             <th><h2>Employee Id</h2></th>
+             <th><h2>Candidate Name</h2></th>
+             <th><h2>Round</h2></th>
+             <th><h2>Date</h2></th>
+             <th><h2>Time</h2></th>
+            
+         </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let e of interviews | paginate:{ itemsPerPage:5, currentPage: p}">
+                
+                 <td>{{e.empId}}</td>
+                 <td>{{e.candidateId}}</td>
+                 <td>{{e.round}}</td>
+                 <td>{{e.date}}</td>
+                 <td>{{e.time}}</td>
+             </tr>
+         </tbody>
+
+        <div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+       
+    </table>
+ </div>

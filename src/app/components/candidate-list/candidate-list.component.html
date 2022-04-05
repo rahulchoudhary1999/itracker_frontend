@@ -1,0 +1,63 @@
+
+<div class="container" id="show">
+    <h1>All Applicants</h1>
+    <table class="table table-bordered">
+         <thead>
+         <tr>
+           
+             <th><h2>Name</h2></th>
+             <th><h2>Email</h2></th>
+             <th><h2>Contact Number</h2></th>
+             <th><h2>Resume Link</h2></th>
+            
+         </tr>
+         </thead>
+         <tbody>
+             <tr *ngFor="let c of candidates | paginate:{ itemsPerPage:5, currentPage: p}">
+                
+                 <td>{{c.name}}</td>
+                 <td>{{c.email}}</td>
+                 <td>{{c.contactNo}}</td>
+                 <td>{{c.resumeLink}}</td>
+             </tr>
+         </tbody>
+
+        <div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+       
+    </table>
+ </div>
+ <!--
+ <body>
+     <ag-grid-angular id="mygrid" style="width : 500px;height: 500px" class="ag-theme-balham">
+        <h1>all data</h1>
+ </ag-grid-angular>
+ 
+ <script>
+     const columnDefs = [
+      {headerName : 'Sno',field : 'sno'},
+      {headerName : 'Employee Id',field : 'empId'},
+      {headerName : 'Candidate Id',field : 'candidateId'},
+      {headerName : 'Date',field : 'date'},
+      {headerName : 'Time',field : 'time'},
+      {headerName : 'Round',field : 'round'}
+  ];
+  const gridOptions = {
+    columnDefs:this.columnDefs,
+    enableSorting :true,
+    enableFilter :true,
+    pagination : true
+  };
+  const egriddiv=document.querySelector('mygrid');
+  new agGrid.Grid(egriddiv,gridOptions);
+  fetch('http://localhost:8080/recruiter-options/getScheduledInterviews').then(function(response) {
+    return response.json();
+  }).then(function(data){
+    
+    this.gridOptions.api.setRowData(data);
+  })
+ </script>
+ </body>
+ -->
+ 

@@ -1,0 +1,41 @@
+<body>
+    <div class="heading">
+        <p >Candidate Feedback</p>
+    </div>
+    
+    <table class="input">
+        <tr>
+            <td>
+                <mat-form-field class="input-field" appearance="outline" color="primary">
+                    <mat-label>Candidate ID</mat-label>
+                    <input #candidateId matInput type="text" (keyup)="getCandidateId(candidateId.value)">
+                </mat-form-field>
+            </td>
+            <td>
+                <button class="search-btn" mat-raised-button color="primary" (click)="idFeedback()">
+                    Search
+                    <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <table class="feedbacks">
+        <thead class="table-heading">
+            <th> Candidate Id</th>
+            <th> Scores </th>
+            <th> Round </th>
+            <th>  Comments </th>
+            <th> Status </th>
+        </thead>
+        <tr *ngFor="let cf of candidateFeedback | paginate:{itemsPerPage:2,currentPage:p};">
+            <td>{{cf.candidateId}}</td>
+            <td>{{cf.score}}</td>
+            <td>{{cf.round}}</td>
+            <td>{{cf.comments}}</td>
+            <td>{{cf.status}}</td>
+        </tr>
+        <!-- <pagination-controls(pageChange)" p = $event "></pagination-controls> -->
+        <pagination-controls (pageChange) = " p = $event"></pagination-controls>
+    </table>
+</body>

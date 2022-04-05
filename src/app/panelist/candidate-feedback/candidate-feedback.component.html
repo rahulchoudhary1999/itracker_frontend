@@ -1,0 +1,59 @@
+
+
+<div class="modal-body">
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+ 
+  <div class="form-group">
+    <p>
+      <label for="candidateId">CandidateId</label>
+      <input type="text" name="candidateId" ngModel class="form-control">
+    </p>
+   
+    <p>
+      <label for="score">Score</label>
+      <input type="number" name="score" ngModel class="form-control">
+    </p>
+   
+    <p>
+      <label for="comments">Comments</label>
+      <input type="text" name="comments" ngModel class="form-control">
+    </p>
+
+    <!-- <p>
+        <label for="status">Status</label>
+        <input type="text" name="status" ngModel>
+      </p> -->
+
+      <p>
+      <label for="status">Status</label>
+      <select name="status" ngModel class="form-control">
+        <option value="Selected">
+          Selected
+        </option>
+        <option value="Rejected">
+          Rejected
+        </option>
+      </select>
+    </p>
+
+     <p>
+    <label for="round">Round</label>
+      <select name="round" ngModel class="form-control"> 
+        <option value="R1">
+          Round 1
+        </option>
+        <option value="R2">
+          Round 2
+        </option>
+      </select>
+    </p>
+  </div>
+      
+  <div class="modal-footer">
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+    </div>
+  </form>
+</div>
+   

@@ -1,0 +1,48 @@
+
+
+    <app-header ></app-header>
+    <!-- <h1>Rahul</h1>
+    <app-sidebar></app-sidebar> -->
+    <mat-drawer-container class="example-container" >
+            <mat-drawer  mode="side" opened  >
+                <!-- <app-sidebar></app-sidebar> -->
+                <mat-list role="list">
+                    <mat-list-item role="listitem">
+                        <b><a role="button"  (click)="func('viewprofile')">View profile</a></b>
+                    </mat-list-item>
+                    <!-- <mat-list-item role="listitem" >
+                        <a href='editprofile' style=" text-decoration: none">Edit profile</a>
+                    </mat-list-item> -->
+                    <mat-list-item role="listitem">
+                        <b><a style=" text-decoration: none"  (click)="func('viewskill')">View skills</a></b>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <b><a  style=" text-decoration: none" (click)="func('viewscheduledinterview')">View scheduled
+                                interview</a></b>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <b> <a  style=" text-decoration: none" (click)="func('slotbook')">Slot book</a></b>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <b> <a  style=" text-decoration: none" (click)="func('incentive')">Apply For Incentive</a></b>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <b> <a  style=" text-decoration: none" (click)="func('candidateFeedback')">Candidate Feedback</a></b>
+                    </mat-list-item>
+                    <mat-list-item role="listitem">
+                        <b> <a style=" text-decoration: none" (click)="logout()">Logout</a></b>
+                    </mat-list-item>
+                </mat-list>
+            </mat-drawer>
+        <mat-drawer-content>
+           
+            <app-welcome *ngIf="flag=='welcome'"></app-welcome>
+            <app-viewprofile *ngIf="flag=='viewprofile'"></app-viewprofile>
+            <app-viewskill *ngIf="flag=='viewskill'"></app-viewskill>
+            <app-viewscheduledinterview *ngIf="flag=='viewscheduledinterview'"></app-viewscheduledinterview>
+            <app-slotbook *ngIf="flag=='slotbook'"></app-slotbook>
+            <app-candidate-feedback *ngIf="flag=='candidateFeedback'"></app-candidate-feedback>
+            <app-incentive *ngIf="flag=='incentive'"></app-incentive>
+        </mat-drawer-content>
+    </mat-drawer-container>
+    <app-footer ></app-footer>

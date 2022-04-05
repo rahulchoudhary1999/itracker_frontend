@@ -1,0 +1,49 @@
+body{
+    text-align: center;
+    display: inline-block;
+}
+
+.heading{
+     color: #063146;
+    font-size: 2rem;
+    font-weight: bold;
+    margin:30px 0;
+}
+
+.feedbacks td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.feedbacks th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.feedbacks tr:nth-child(even){background-color: #f2f2f2;}
+
+.feedbacks{
+    border-collapse: "collapse";
+    width: 90%;
+    margin: auto;
+}
+
+.table-heading{
+    padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #063146;
+  color: white;
+}
+
+.input{
+    margin: 20px auto;
+    color: #063146;
+}
+
+.search-btn{
+    margin-left: 10px;
+    margin-bottom: 3px;
+    background-color: #063146;
+}

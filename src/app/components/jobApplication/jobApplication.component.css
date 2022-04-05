@@ -1,0 +1,52 @@
+.home{
+    text-align: center;
+}
+
+.heading{
+    margin: 30px 0;
+    font-size: 3em;
+    font-weight: bold;
+    color: #063146;
+}
+
+.input{
+    margin-left: auto;
+    margin-right: auto;
+}
+.input-field{
+    margin: 20px;
+}
+
+
+.search-btn{
+    margin-bottom: 10px;
+    margin-left: 20px;
+    background-color: #063146;
+}
+
+.job{
+    border-collapse: "collapse";
+    width: 90%;
+    margin: auto;
+}
+
+.table-heading{
+    padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #063146;
+  color: white;
+}
+
+.job td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.job th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.job tr:nth-child(even){background-color: #f2f2f2;}
