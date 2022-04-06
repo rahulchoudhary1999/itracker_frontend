@@ -15,14 +15,12 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class HomeComponent implements OnInit {
-
   name;
   email;
   photo;
   data:any;
   constructor(private http: HttpClient, private securityService: SecurityService,
-              private router: Router) {
-                
+              private router: Router) {   
                 this.checkForEmployee();
   }
 
@@ -33,12 +31,6 @@ export class HomeComponent implements OnInit {
       // this.name = data["Profile"]["name"]
       // this.email= data["Profile"]["email"]
       // this.photoUrl = data.photoUrl
-
-     
-      
-      
-
-      
     }
     );
   }
@@ -71,8 +63,6 @@ export class HomeComponent implements OnInit {
 
   }
  
-  
-
 
   getUserInfo(): Observable<any> {
     return this.http.get(environment.baseUrl + '/v1/home');
