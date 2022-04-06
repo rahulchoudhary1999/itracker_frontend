@@ -1,5 +1,5 @@
 
-<body>
+<body *ngIf="employeeType=='recruiter'">
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <button mat-icon-button>
@@ -58,4 +58,9 @@
 
 </div>
 </body>
+
+<div *ngIf="employeeType!='recruiter'" style="color:red">
+    <b><h1>You have no access this page</h1></b>
+    <b><h1>close this tab </h1></b>
+</div>
 

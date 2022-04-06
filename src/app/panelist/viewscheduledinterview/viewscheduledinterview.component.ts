@@ -12,7 +12,7 @@ import { EmployeeService } from 'src/app/employee.service';
 
 export class ViewscheduledinterviewComponent implements  OnInit{
 
-  displayedColumns: string[] = [ 'date', 'time','round', 'candidateId'];
+  displayedColumns: string[] = [ 'date', 'time','round', 'candidateName','email'];
   dataSource1!:MatTableDataSource<any>;
   dataSource2!:MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -12,9 +12,13 @@ import { Router } from '@angular/router';
 })
 export class RecruiterOptionsComponent implements OnInit {
  
-  constructor(private http: HttpClient, private securityService: SecurityService,
-    private router: Router) { }
   show = 'showsidebar';
+  employeeType:any;
+  constructor(private http: HttpClient, private securityService: SecurityService,
+    private router: Router) {
+      this.employeeType=localStorage.getItem("employeeType");
+     }
+  
   ngOnInit(): void {
   
   }

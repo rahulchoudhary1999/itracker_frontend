@@ -11,11 +11,13 @@ import { SecurityService } from '../security.service';
 export class PanelistViewComponent implements OnInit {
 
   flag:string;
+  employeeType:any
   constructor(private http: HttpClient, private securityService: SecurityService,
     private router: Router) { 
     this.flag="welcome";
+    this.employeeType=localStorage.getItem("employeeType");
   }
-
+  
   ngOnInit(): void {
   }
 

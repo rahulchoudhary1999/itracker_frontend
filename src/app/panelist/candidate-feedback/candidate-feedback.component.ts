@@ -17,6 +17,7 @@ export class CandidateFeedbackComponent implements OnInit {
     this.employeeService.addCandidateFeedback(formData).subscribe(
       (response:any)=>{
         console.log(response);
+        alert("Candidate Feedback added Successfully");
       },
       (error:HttpErrorResponse)=>{
         alert(error.message);
