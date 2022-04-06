@@ -39,11 +39,18 @@ export class HomeComponent implements OnInit {
  
     this.getUserInfo().subscribe(data => {
       console.log("Data :"+data);
+      if(data["employee"]==null) this.router.navigate(['/invalid']);
       // this.name = data["Profile"]["name"]
       // this.email= data["Profile"]["email"]
       // this.photoUrl = data.photoUrl
+     if(data["employee"]!=null)
+     {
       localStorage.setItem("employee",data["employee"]);
       localStorage.setItem("employeeId",data["employee"]["employeeId"]);
+      localStorage.setItem("name",data["employee"]["name"]);
+      localStorage.setItem("email",data["employee"]["email"]);
+      localStorage.setItem("contactNumber",data["employee"]["contactNumber"]);
+      localStorage.setItem("gender",data["employee"]["gender"]);
       localStorage.setItem("employeeType",data["employee"]["employeeType"]);
       if(localStorage.getItem("employeeType")=="recruiter")
       {
@@ -56,6 +63,10 @@ export class HomeComponent implements OnInit {
         // alert("Invalid User");
         // return "invalid";
       }
+    }
+      
+        
+      
     }
     );
   

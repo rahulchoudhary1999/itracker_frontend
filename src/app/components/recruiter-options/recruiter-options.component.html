@@ -2,12 +2,12 @@
 <body *ngIf="employeeType=='recruiter'">
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <button mat-icon-button>
+        <!-- <button mat-icon-button>
             <mat-icon (click)="sidenav.toggle();">
                 menu
             </mat-icon>
-        </button>
-        <h1><img width="140" src="assets/logo.jpg"></h1>
+        </button> -->
+        <h1><img width="185" src="assets/logo.jpg" (click)="showWelcomePage()"></h1>
 
     </mat-toolbar-row>
 </mat-toolbar>
@@ -15,16 +15,16 @@
     <mat-sidenav #sidenav opened="true" mode="side">
         <mat-nav-list>
             <ul>
-                <li> <a role="button"> <i class="fas fa-qrcode"> </i> Dashboard</a></li>
-                <li> <a role="button"> <i class="fas fa-calendar-week"> </i> My Profile</a></li>
-                <li> <a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View Slots</a></li>
-                <li> <a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
-                        Interview</a></li>
-                <li> <a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
-                        Applicants</a></li>
-                <li> <a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i> Feedbacks</a></li>
-                <li> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></li>
-                <li> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></li>
+               
+                <li> <b><a role="button" (click)="myProfile()"> <i class="fas fa-calendar-week" > </i> My Profile</a></b></li>
+                <li> <b><a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View Slots</a></b></li>
+                <li>  <b><a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
+                        Interview</a></b></li>
+                <li>  <b><a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
+                        Applicants</a></b></li>
+                <li>  <b><a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i> Feedbacks</a></b></li>
+                <li> <b> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></b></li>
+                <li> <b> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></b></li>
 
             </ul>
         </mat-nav-list>
@@ -37,8 +37,27 @@
     
 </mat-sidenav-container>
 <div id="content">
+    <div *ngIf="welcomePage">
+        <br/>
+        <h1><b>Hello Recruiter...</b></h1>
+    </div>
 <div *ngIf="getview_slots()">
     <app-interview-list></app-interview-list>
+</div>
+<div *ngIf="view_profile">
+
+    <br />
+    <h3><b>Employee Id :</b> &nbsp;&nbsp;{{employeeId}}</h3>
+    <br />
+    <h3><b>Name :</b>&nbsp;&nbsp;{{name}}</h3>
+    <br />
+    <h3><b>Email :</b>&nbsp;&nbsp;{{email}}</h3>
+    <br />
+    <h3><b>Contact Number :</b>&nbsp;&nbsp;{{contactNumber}}</h3>
+    <br />
+    <h3><b>Gender :</b>&nbsp;&nbsp;{{gender}}</h3>
+    <br />
+    <b></b>
 </div>
 <div *ngIf="getview_applicants()">
     <app-candidate-list></app-candidate-list>
@@ -60,7 +79,7 @@
 </body>
 
 <div *ngIf="employeeType!='recruiter'" style="color:red">
-    <b><h1>You have no access this page</h1></b>
+    <b><h1>You have no access to this page</h1></b>
     <b><h1>close this tab </h1></b>
 </div>
 

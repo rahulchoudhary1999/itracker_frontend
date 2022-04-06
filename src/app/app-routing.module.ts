@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { RecruiterComponent } from './recruiter/recruiter.component';
 import { PanelistViewComponent } from './panelist-view/panelist-view.component';
 import { RecruiterOptionsComponent } from './components/recruiter-options/recruiter-options.component';
+import { InvalidPageComponent } from './invalid-page/invalid-page.component';
 //import { IncentiveComponent } from './panelist/incentive/incentive.component';
 
 
@@ -28,8 +29,8 @@ const routes: Routes = [
   {path:'panelist/candidateFeedback',component:CandidateFeedbackComponent, canActivate:[AuthGuard]},
   // {path:'recruiter',component:RecruiterComponent, canActivate:[AuthGuard]},
   {path:'recruiter',component: RecruiterOptionsComponent , canActivate:[AuthGuard]},
-  {path:'panelist',component:PanelistViewComponent, canActivate:[AuthGuard]}
-
+  {path:'panelist',component:PanelistViewComponent, canActivate:[AuthGuard]},
+  {path:'invalid', component:InvalidPageComponent , canActivate:[AuthGuard]}
   // {path:'incentive', component: IncentiveComponent, canActivate:[AuthGuard]}
 ];
 

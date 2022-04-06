@@ -35,6 +35,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatSliderModule } from '@angular/material/slider';
 import { NgxPaginationModule } from "ngx-pagination";
 import { AuthHeaderInterceptor } from "./auth-header.interceptor";
+import { InvalidPageComponent } from './invalid-page/invalid-page.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AuthHeaderInterceptor } from "./auth-header.interceptor";
     InterviewListComponent,
     ScheduleInterviewComponent,
     JobsComponent,
-    SidebarComponent
+    SidebarComponent,
+    InvalidPageComponent
   ],
   imports: [
     BrowserModule,
