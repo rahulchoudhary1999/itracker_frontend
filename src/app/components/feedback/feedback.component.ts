@@ -48,7 +48,7 @@ export class FeedbackComponent implements OnInit {
       
       for(var cf of this.allCandidateFeedBack)
       {   
-        if(cf.candidateName === this.candidateName)
+        if(cf.candidateName.toLowerCase() === this.candidateName.toLowerCase())
         {
           console.log(cf.candidateName); 
           this.selectedCandidate.push(cf);
