@@ -4,7 +4,7 @@ export class Candidate {
     "contactNo": string;
     "gender": string;
     "resumeLink": string;
-    "candidateId": number;
+    "candidateID": string;
 
 
 

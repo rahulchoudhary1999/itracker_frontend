@@ -45,6 +45,7 @@ export class CandidateListComponent implements OnInit {
     this.candidateService.getCandidates().subscribe(
       data => {
         this.candidates = data;
+        console.log("ashutosh-",data);
       }
     )
   }

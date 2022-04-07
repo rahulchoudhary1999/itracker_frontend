@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       // this.email= data["Profile"]["email"]
       // this.photoUrl = data.photoUrl
       localStorage.setItem("employee",data["employee"]);
-      localStorage.setItem("employeeId",data["employee"]["employeeId"]);
+      localStorage.setItem("employeeId",data["employee"]["empId"]);
       localStorage.setItem("employeeType",data["employee"]["employeeType"]);
       if(localStorage.getItem("employeeType")=="recruiter")
       {
