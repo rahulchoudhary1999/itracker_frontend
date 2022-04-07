@@ -42,6 +42,8 @@ export class RecruiterOptionsComponent implements OnInit {
   jobs : boolean=false;
   feedback : boolean =false;
   view_profile : boolean=false;
+  available_slots : boolean=false;
+
   showWelcomePage(){
     this.welcomePage=true;
     this.view_profile=false;
@@ -50,7 +52,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_applicants=false;
     this.view_slots=false;
     this.schedule_interview=false;
-
+    this.available_slots = false;
   }
   myProfile(){
     this.view_profile=true;
@@ -60,6 +62,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_slots=false;
     this.schedule_interview=false;
     this.welcomePage=false;
+    this.available_slots=false;
   }
   viewfeedback(){
     this.view_profile=false;
@@ -69,6 +72,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_slots=false;
     this.schedule_interview=false;
     this.welcomePage=false;
+    this.available_slots=false;
   }
   viewJobs(){
     this.view_profile=false;
@@ -78,6 +82,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_slots=false;
     this.schedule_interview=false;
     this.welcomePage=false;
+    this.available_slots=false;
   }
   viewApplicants(){
     this.view_profile=false;
@@ -87,6 +92,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_slots=false;
     this.schedule_interview=false;
     this.welcomePage=false;
+    this.available_slots=false;
   }
   viewSlots(){
     this.view_profile=false;
@@ -96,6 +102,17 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_applicants=false;
     this.schedule_interview=false;
     this.welcomePage=false;
+    this.available_slots=false;
+  }
+  viewFreeSlots(){
+    this.view_profile=false;
+    this.feedback=false;
+    this.jobs=false;
+    this.view_slots=false;
+    this.view_applicants=false;
+    this.schedule_interview=false;
+    this.welcomePage=false;
+    this.available_slots=true;
   }
   scheduleInterview(){
     this.view_profile=false;
@@ -120,6 +137,10 @@ export class RecruiterOptionsComponent implements OnInit {
   }
   getjobs(){
     return this.jobs;
+  }
+  getAvailableSlots()
+  {
+    return this.available_slots;
   }
 
   logout(){

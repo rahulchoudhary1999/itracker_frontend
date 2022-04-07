@@ -1,0 +1,45 @@
+<body>
+    <div class="heading">
+        <p >Employee Available Slots</p>
+    </div>
+    
+    <table class="input">
+        <tr>
+            <td>
+                <mat-form-field class="input-field" appearance="outline" color="primary">
+                    <mat-label>Employee Name</mat-label>
+                    <input #employeeName matInput type="text" (keyup)="getEmployeeName(employeeName.value)">
+                </mat-form-field>
+            </td>
+            <td>
+                <button (click)="getEmployee()" class="search-btn" mat-raised-button color="primary">
+                    Search
+                    <mat-icon aria-hidden="false" aria-label="Example Search icon">search</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+    <table class="slots">
+        <thead class="table-heading">
+            <th> Employee Name</th>
+            <th> Email </th>
+            <th> Date </th>
+            <th> Time </th>
+        </thead>
+        <tr>
+            <td>Gagan</td>
+            <td>gagan123@gmail.com</td>
+            <td>12-04-2022</td>
+            <td>12:00:00</td>
+        </tr>
+         <tr *ngFor="let slot of slots | paginate:{itemsPerPage:2,currentPage:p};">
+            <td>{{slot.employeeName}}</td>
+            <td>{{slot.email}}</td>
+            <td>{{slot.date}}</td>
+            <td>{{slot.time}}</td>
+        </tr>
+        <!-- <pagination-controls(pageChange)" p = $event "></pagination-controls> -->
+        <pagination-controls (pageChange) = " p = $event"></pagination-controls> 
+    </table>
+</body>

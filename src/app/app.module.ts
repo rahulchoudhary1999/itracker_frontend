@@ -36,6 +36,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NgxPaginationModule } from "ngx-pagination";
 import { AuthHeaderInterceptor } from "./auth-header.interceptor";
 import { InvalidPageComponent } from './invalid-page/invalid-page.component';
+import { AvailableSlotsComponent } from './components/available-slots/available-slots.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { InvalidPageComponent } from './invalid-page/invalid-page.component';
     ScheduleInterviewComponent,
     JobsComponent,
     SidebarComponent,
-    InvalidPageComponent
+    InvalidPageComponent,
+    AvailableSlotsComponent
   ],
   imports: [
     BrowserModule,
