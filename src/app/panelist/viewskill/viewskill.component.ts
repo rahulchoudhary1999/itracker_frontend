@@ -17,8 +17,11 @@ export class ViewskillComponent implements OnInit {
   public skills: Skills[];
   public skillsAvailable: Onlyskills[];
   public deleteSkill: Skills | null;
+  employeeId:any;
 
-  constructor(private skillService: SkillsService) { }
+  constructor(private skillService: SkillsService) {
+    this.employeeId=localStorage.getItem("employeeId");
+   }
 
   ngOnInit(): void {
     this.skillService.getSkillsByEmpId().subscribe((data: Skills[]) =>{

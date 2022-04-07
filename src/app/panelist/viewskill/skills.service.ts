@@ -9,7 +9,9 @@ import { Skills } from './skills';
 })
 export class SkillsService {
 
-  private baseUrl = 'http://localhost:8080/api/v1/employee/skill/e_id/INT1027';
+  private employeeId=localStorage.getItem("employeeId");
+
+  private baseUrl = `http://localhost:8080/api/v1/employee/skill/e_id/${this.employeeId}`;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +21,7 @@ export class SkillsService {
   
   deleteSkill(Id?:number):Observable<any>{
     console.log(`http://localhost:8080/api/v1/employee/skill/${Id}`);
-    return this.http.delete<any>(`http://localhost:8080/api/v1/employee/skill/${Id}`);
+    return this.http.delete<any>(`http://localhost:8080/api/v1/employee/skill/r_id/${Id}`);
   }
   
   addSkill(skill:Skills): Observable<any>{
