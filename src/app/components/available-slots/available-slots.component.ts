@@ -14,7 +14,6 @@ export class AvailableSlotsComponent implements OnInit {
   slots : AvailableSlots[]
   selectedSlots : AvailableSlots[]=[];
   p: number = 1;
-
   constructor(private slotsService : AvailableSlotsService , public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {

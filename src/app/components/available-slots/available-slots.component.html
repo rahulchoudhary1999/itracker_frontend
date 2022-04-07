@@ -1,8 +1,9 @@
 <body>
     <div class="heading">
-        <p >Employee Available Slots</p>
+        <p>Employee Available Slots</p>
     </div>
-    
+
+    <div class="content">
     <table class="input">
         <tr>
             <td>
@@ -20,26 +21,29 @@
         </tr>
     </table>
 
-    <table class="slots">
-        <thead class="table-heading">
-            <th> Employee Name</th>
-            <th> Email </th>
-            <th> Date </th>
-            <th> Time </th>
-        </thead>
-        <tr>
-            <td>Gagan</td>
-            <td>gagan123@gmail.com</td>
-            <td>12-04-2022</td>
-            <td>12:00:00</td>
-        </tr>
-         <tr *ngFor="let slot of slots | paginate:{itemsPerPage:2,currentPage:p};">
-            <td>{{slot.employeeName}}</td>
-            <td>{{slot.email}}</td>
-            <td>{{slot.date}}</td>
-            <td>{{slot.time}}</td>
-        </tr>
-        <!-- <pagination-controls(pageChange)" p = $event "></pagination-controls> -->
-        <pagination-controls (pageChange) = " p = $event"></pagination-controls> 
-    </table>
+    <div class="data">
+        <table class="slots">
+            <thead class="table-heading">
+                <th> Employee Name</th>
+                <th> Email </th>
+                <th> Date </th>
+                <th> Time </th>
+            </thead>
+            <tr>
+                <td>Gagan</td>
+                <td>gagan123@gmail.com</td>
+                <td>12-04-2022</td>
+                <td>12:00:00</td>
+            </tr>
+            <tr *ngFor="let slot of slots | paginate:{itemsPerPage:2,currentPage:p};">
+                <td>{{slot.employeeName}}</td>
+                <td>{{slot.email}}</td>
+                <td>{{slot.date}}</td>
+                <td>{{slot.time}}</td>
+            </tr>
+            <!-- <pagination-controls(pageChange)" p = $event "></pagination-controls> -->
+            <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+        </table>
+    </div>
+</div>
 </body>

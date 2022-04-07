@@ -1,13 +1,19 @@
 body{
+    background-color: #F5F5F5;
     text-align: center;
     display: inline-block;
 }
 
+.content{
+    margin-top: 10px;
+    width: 90%;
+}
+
 .heading{
-     color: #063146;
-    font-size: 2rem;
+     color: #007BFF;
+    font-size: 2.5rem;
     font-weight: bold;
-    margin:30px 0;
+    margin:70px 300px 30px ;
 }
 
 .slots td {
@@ -23,6 +29,11 @@ body{
 
 .slots tr:nth-child(even){background-color: #f2f2f2;}
 
+.data{
+ width: 100%;
+ margin-left: 100px;
+}
+
 .slots{
     border-collapse: "collapse";
     width: 100%;
@@ -33,17 +44,19 @@ body{
     padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #063146;
+  background-color: #007BFF;
   color: white;
 }
 
 .input{
-    margin: 20px auto;
-    color: #063146;
+    margin-top: 20px;
+    margin-bottom: 20px;;
+    margin-left: 350px;
+    color: black;
 }
 
 .search-btn{
     margin-left: 10px;
     margin-bottom: 3px;
-    background-color: #063146;
+    background-color: #007BFF;
 }
