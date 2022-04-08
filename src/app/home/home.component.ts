@@ -15,14 +15,12 @@ import {Router} from "@angular/router";
   providedIn: 'root'
 })
 export class HomeComponent implements OnInit {
-
   name;
   email;
   photo;
   data:any;
   constructor(private http: HttpClient, private securityService: SecurityService,
-              private router: Router) {
-                
+              private router: Router) {   
                 this.checkForEmployee();
   }
 
@@ -33,12 +31,6 @@ export class HomeComponent implements OnInit {
       // this.name = data["Profile"]["name"]
       // this.email= data["Profile"]["email"]
       // this.photoUrl = data.photoUrl
-
-     
-      
-      
-
-      
     }
     );
   }
@@ -47,11 +39,22 @@ export class HomeComponent implements OnInit {
  
     this.getUserInfo().subscribe(data => {
       console.log("Data :"+data);
+      if(data["employee"]==null) this.router.navigate(['/invalid']);
       // this.name = data["Profile"]["name"]
       // this.email= data["Profile"]["email"]
       // this.photoUrl = data.photoUrl
+     if(data["employee"]!=null)
+     {
       localStorage.setItem("employee",data["employee"]);
+
+     
+
       localStorage.setItem("employeeId",data["employee"]["empId"]);
+      localStorage.setItem("name",data["employee"]["name"]);
+      localStorage.setItem("email",data["employee"]["email"]);
+      localStorage.setItem("contactNumber",data["employee"]["contactNo"]);
+      localStorage.setItem("gender",data["employee"]["gender"]);
+
       localStorage.setItem("employeeType",data["employee"]["employeeType"]);
       if(localStorage.getItem("employeeType")=="recruiter")
       {
@@ -65,14 +68,16 @@ export class HomeComponent implements OnInit {
         // return "invalid";
       }
     }
+      
+        
+      
+    }
     );
   
    // console.log("Work :"+localStorage.getItem("page"));
 
   }
  
-  
-
 
   getUserInfo(): Observable<any> {
     return this.http.get(environment.baseUrl + '/v1/home');

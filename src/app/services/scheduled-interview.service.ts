@@ -15,6 +15,9 @@ export class ScheduledInterviewService {
    public getScheduledinterviews() : Observable<ScheduledInterviews[]> {
      return this.http.get<ScheduledInterviews[]>(`${this.url}/recruiter-options/getScheduledInterviews`);
    }
+   public getScheduledinterviewsByCid(cid : number ) : Observable<ScheduledInterviews[]> {
+    return this.http.get<ScheduledInterviews[]>(`${this.url}/recruiter-options/getScheduledInterviewsById/${cid}`);
+  }
    //post
    public addScheduledinterviews(interview : ScheduledInterviews) : Observable<ScheduledInterviews>{
      return this.http.post<ScheduledInterviews>(`${this.url}/recruiter-options/addScheduledInterview`,interview).pipe(catchError(this.erroHandler));

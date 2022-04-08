@@ -4,7 +4,7 @@ export class Candidate {
     "contactNo": string;
     "gender": string;
     "resumeLink": string;
-    "candidateID": string;
+    "candidateId": number;
 
 
 
@@ -20,15 +20,15 @@ export class Candidate {
 
 
 
-    /*
+    
      constructor(id : number,name : string,email : string , contact : string , gender : string ,link : string){
-         this.candidate_ID=id;
-         this.contact_No = contact;
+         this.candidateId=id;
+         this.contactNo = contact;
          this.email=email;
          this.gender=gender;
          this.name = name;
          this.resumeLink = link;
      }
-     */
+     
 }
 //const candidate = new Candidate(1,"ashutosh","as@gmail.com","5432267543","male","null");

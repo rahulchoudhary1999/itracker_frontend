@@ -1,6 +1,7 @@
 export class CandidateFeedback{
     "feedbackId" : number;
-    "candidateId" : number;
+    "candidateName" : string;
+    "email" : string;
     "score" : number;
     "status" : string;
     "comments" : string;

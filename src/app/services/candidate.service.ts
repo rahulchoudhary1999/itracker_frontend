@@ -16,6 +16,10 @@ export class CandidateService {
    public getCandidates() : Observable<Candidate[]> {
      return this.http.get<Candidate[]>(`${this.url}/recruiter-options/findCandidates`);
    }
+   public getCandidateByEmail(email : string) : Observable<Candidate> {
+    return this.http.get<Candidate>(`${this.url}/recruiter-options/findCandidateByEmail/${email}`);
+  }
+   
    //post
    public addCandidate(candidate : Candidate) : Observable<Candidate>{
      return this.http.post<Candidate>(`${this.url}/employee/addCandidate`,candidate);

@@ -1,36 +1,36 @@
 
 
-    <app-header ></app-header>
+    <app-header *ngIf="employeeType=='panelist'"></app-header>
     <!-- <h1>Rahul</h1>
     <app-sidebar></app-sidebar> -->
-    <mat-drawer-container class="example-container" >
-            <mat-drawer  mode="side" opened  >
+    <mat-drawer-container class="example-container" *ngIf="employeeType=='panelist'">
+            <mat-drawer  mode="side" opened  style="color:gray">
                 <!-- <app-sidebar></app-sidebar> -->
                 <mat-list role="list">
                     <mat-list-item role="listitem">
-                        <b><a role="button"  (click)="func('viewprofile')">View profile</a></b>
+                        <b><a role="button" style="color:#007bff" (click)="func('viewprofile')">View profile</a></b>
                     </mat-list-item>
                     <!-- <mat-list-item role="listitem" >
                         <a href='editprofile' style=" text-decoration: none">Edit profile</a>
                     </mat-list-item> -->
                     <mat-list-item role="listitem">
-                        <b><a style=" text-decoration: none"  (click)="func('viewskill')">View skills</a></b>
+                        <b><a style=" text-decoration: none" style="color:#007bff" (click)="func('viewskill')">View skills</a></b>
                     </mat-list-item>
                     <mat-list-item role="listitem">
-                        <b><a  style=" text-decoration: none" (click)="func('viewscheduledinterview')">View scheduled
+                        <b><a  style=" text-decoration: none" style="color:#007bff" (click)="func('viewscheduledinterview')">View scheduled
                                 interview</a></b>
                     </mat-list-item>
                     <mat-list-item role="listitem">
-                        <b> <a  style=" text-decoration: none" (click)="func('slotbook')">Slot book</a></b>
+                        <b> <a  style=" text-decoration: none" style="color:#007bff" (click)="func('slotbook')">Slot book</a></b>
                     </mat-list-item>
                     <mat-list-item role="listitem">
-                        <b> <a  style=" text-decoration: none" (click)="func('incentive')">Apply For Incentive</a></b>
+                        <b> <a  style=" text-decoration: none" style="color:#007bff" (click)="func('incentive')">Apply For Incentive</a></b>
                     </mat-list-item>
                     <mat-list-item role="listitem">
-                        <b> <a  style=" text-decoration: none" (click)="func('candidateFeedback')">Candidate Feedback</a></b>
+                        <b> <a  style=" text-decoration: none" style="color:#007bff" (click)="func('candidateFeedback')">Candidate Feedback</a></b>
                     </mat-list-item>
                     <mat-list-item role="listitem">
-                        <b> <a style=" text-decoration: none" (click)="logout()">Logout</a></b>
+                        <b> <a style=" text-decoration: none" style="color:#007bff" (click)="logout()">Logout</a></b>
                     </mat-list-item>
                 </mat-list>
             </mat-drawer>
@@ -45,4 +45,8 @@
             <app-incentive *ngIf="flag=='incentive'"></app-incentive>
         </mat-drawer-content>
     </mat-drawer-container>
-    <app-footer ></app-footer>
+    <div *ngIf="employeeType!='panelist'" style="color:red">
+        <b><h1>You have no access to this page</h1></b>
+        <b><h1>close this tab</h1></b>
+    </div>
+    <app-footer *ngIf="employeeType=='panelist'" ></app-footer>

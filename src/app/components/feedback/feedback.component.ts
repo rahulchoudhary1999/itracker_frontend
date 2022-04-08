@@ -15,7 +15,7 @@ export class FeedbackComponent implements OnInit {
   candidateFeedback : CandidateFeedback[]
   selectedCandidate : CandidateFeedback[]=[]
   p: number = 1;
-  candidateId : string
+  candidateName : string
 
   constructor(private feedbackService : FeedbackService , public snackBar: MatSnackBar ) { }
 
@@ -34,23 +34,23 @@ export class FeedbackComponent implements OnInit {
     })
   }
 
- getCandidateId(val: string)
+ getCandidateName(val: string)
  {
-   this.candidateId=val;
-   console.log(this.candidateId);
+   this.candidateName=val;
+   console.log(this.candidateName);
  }
 
 
- idFeedback()
+ feedback()
  {
-    if(this.candidateId != null && this.candidateId !='')
+    if(this.candidateName != null && this.candidateName !='')
     {
       
       for(var cf of this.allCandidateFeedBack)
       {   
-        if(cf.candidateId === parseInt(this.candidateId))
+        if(cf.candidateName.toLowerCase() === this.candidateName.toLowerCase())
         {
-          console.log(cf.candidateId); 
+          console.log(cf.candidateName); 
           this.selectedCandidate.push(cf);
         }
       }
@@ -62,7 +62,7 @@ export class FeedbackComponent implements OnInit {
         this.selectedCandidate=[];
       }
       else{
-        this.openSnackBar("Invalid Candidate Id","act");
+        this.openSnackBar("No Records Found","act");
       }
     }
    

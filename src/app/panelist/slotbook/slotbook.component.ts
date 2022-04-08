@@ -4,7 +4,7 @@ import { EmployeeService } from 'src/app/employee.service';
 
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+// import {DataPipe} from '@angular/common';
 @Component({
   selector: 'app-slotbook',
   templateUrl: './slotbook.component.html',
@@ -19,7 +19,10 @@ export class SlotbookComponent implements OnInit {
   date:any
   data:any
   response:any
-  constructor(private employeeService:EmployeeService) { }
+  latestDate:any
+  constructor(private employeeService:EmployeeService) {
+    this.latestDate=new Date();
+   }
 
 
   tableLoad():void{

@@ -35,6 +35,12 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatSliderModule } from '@angular/material/slider';
 import { NgxPaginationModule } from "ngx-pagination";
 import { AuthHeaderInterceptor } from "./auth-header.interceptor";
+import { InvalidPageComponent } from './invalid-page/invalid-page.component';
+import { DownloadCsvService } from "./services/download-csv.service";
+import { DatePipe } from "@angular/common";
+import { CandidateService } from "./services/candidate.service";
+import { ScheduledInterviewService } from "./services/scheduled-interview.service";
+import { SlotListService } from "./services/slot-list.service";
 
 @NgModule({
   declarations: [
@@ -59,7 +65,8 @@ import { AuthHeaderInterceptor } from "./auth-header.interceptor";
     InterviewListComponent,
     ScheduleInterviewComponent,
     JobsComponent,
-    SidebarComponent
+    SidebarComponent,
+    InvalidPageComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +97,11 @@ import { AuthHeaderInterceptor } from "./auth-header.interceptor";
     
   ],
   providers: [
+    DownloadCsvService,
+    CandidateService,
+    ScheduledInterviewService,
+    SlotListService,
+    DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderInterceptor,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { HomeComponent } from './home/home.component';
 import { SecurityService } from './security.service';
 
@@ -8,16 +9,14 @@ import { SecurityService } from './security.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'ui';
+  title = 'iTracker';
   page:any;
-  constructor(public securityService: SecurityService) {
-    // console.log("Security Service :"+securityService.isAuthenticated)
-    // this.page=homeComponent.checkForEmployee();
-    }
+  constructor(private titleService: Title){
+    titleService.setTitle("iTracker");
+  }
 
     ngOnInit(): void {
-      // this.page=localStorage.getItem("page");
-      // console.log("abc :"+localStorage.getItem("page"));
+     
     }
 
 }

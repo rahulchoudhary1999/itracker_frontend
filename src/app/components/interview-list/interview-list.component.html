@@ -4,22 +4,25 @@
          <thead>
          <tr>
             
-             <th><h2>Employee Id</h2></th>
+             <th><h2>Employee Name</h2></th>
+             <th><h2>employeeEmail</h2></th>
              <th><h2>Candidate Name</h2></th>
-             <th><h2>Round</h2></th>
+             <th><h2>Candidate Email</h2></th>
              <th><h2>Date</h2></th>
              <th><h2>Time</h2></th>
-            
+             <th><h2>Round</h2></th>
          </tr>
          </thead>
          <tbody>
-             <tr *ngFor="let e of interviews | paginate:{ itemsPerPage:5, currentPage: p}">
-                
-                 <td>{{e.empId}}</td>
-                 <td>{{e.candidateId}}</td>
-                 <td>{{e.round}}</td>
-                 <td>{{e.date}}</td>
-                 <td>{{e.time}}</td>
+             <tr *ngFor="let s of slots | paginate:{ itemsPerPage:5, currentPage: p}">
+               
+                 <td>{{s.employeeName}}</td>
+                 <td>{{s.employeeEmail}}</td>
+                 <td>{{s.candidateName}}</td>
+                 <td>{{s.candidateEmail}}</td>
+                 <td>{{s.date}}</td>
+                 <td>{{s.time}}</td>
+                 <td>{{s.round}}</td>
              </tr>
          </tbody>
 
@@ -29,3 +32,4 @@
        
     </table>
  </div>
+ <button (click)="downloadFile()">Download CSV File</button>
