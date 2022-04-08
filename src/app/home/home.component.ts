@@ -46,9 +46,6 @@ export class HomeComponent implements OnInit {
      if(data["employee"]!=null)
      {
       localStorage.setItem("employee",data["employee"]);
-
-     
-
       localStorage.setItem("employeeId",data["employee"]["empId"]);
       localStorage.setItem("name",data["employee"]["name"]);
       localStorage.setItem("email",data["employee"]["email"]);
