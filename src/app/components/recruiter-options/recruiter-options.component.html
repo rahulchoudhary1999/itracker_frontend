@@ -23,12 +23,13 @@
                                 Interview</a></b></li>
                     <li> <b><a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
                                 Applicants</a></b></li>
-                    <li> <b><a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i>
-                                Feedbacks</a></b></li>
-                    <li> <b> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></b>
-                    </li>
+
                     <li> <b> <a role="button" (click)="viewFreeSlots()"> <i class="fas fa-calendar-week"> </i>Available
                                 Slots</a></b></li>
+                    <li> <b> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></b>
+                    </li>
+                    <li> <b><a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i>
+                                Feedbacks</a></b></li>
                     <li> <b> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></b>
                     </li>
 
@@ -81,7 +82,7 @@
             <app-feedback></app-feedback>
         </div>
 
-        <div *ngIf = "getAvailableSlots()">
+        <div *ngIf="getAvailableSlots()">
             <app-available-slots></app-available-slots>
         </div>
 

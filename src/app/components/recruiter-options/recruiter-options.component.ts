@@ -122,6 +122,7 @@ export class RecruiterOptionsComponent implements OnInit {
     this.view_slots=false;
     this.view_applicants=false;
     this.welcomePage=false;
+    this.available_slots=false;
   }
   getfeedback(){
     return this.feedback;

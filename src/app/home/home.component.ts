@@ -46,10 +46,10 @@ export class HomeComponent implements OnInit {
      if(data["employee"]!=null)
      {
       localStorage.setItem("employee",data["employee"]);
-      localStorage.setItem("employeeId",data["employee"]["employeeId"]);
+      localStorage.setItem("employeeId",data["employee"]["empId"]);
       localStorage.setItem("name",data["employee"]["name"]);
       localStorage.setItem("email",data["employee"]["email"]);
-      localStorage.setItem("contactNumber",data["employee"]["contactNumber"]);
+      localStorage.setItem("contactNumber",data["employee"]["contactNo"]);
       localStorage.setItem("gender",data["employee"]["gender"]);
       localStorage.setItem("employeeType",data["employee"]["employeeType"]);
       if(localStorage.getItem("employeeType")=="recruiter")
