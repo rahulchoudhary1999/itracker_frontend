@@ -1,12 +1,13 @@
 .home{
     text-align: center;
+    background-color: #F5F5F5;
 }
 
 .heading{
     margin: 30px 0;
     font-size: 3em;
     font-weight: bold;
-    color: #063146;
+    color: #007BFF;
 }
 
 .input{
@@ -21,7 +22,7 @@
 .search-btn{
     margin-bottom: 10px;
     margin-left: 20px;
-    background-color: #063146;
+    background-color: #007BFF;
 }
 
 .job{
@@ -34,7 +35,7 @@
     padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #063146;
+  background-color: #007BFF;
   color: white;
 }
 

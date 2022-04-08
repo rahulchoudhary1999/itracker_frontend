@@ -36,11 +36,17 @@ import { MatSliderModule } from '@angular/material/slider';
 import { NgxPaginationModule } from "ngx-pagination";
 import { AuthHeaderInterceptor } from "./auth-header.interceptor";
 import { InvalidPageComponent } from './invalid-page/invalid-page.component';
+
 import { DownloadCsvService } from "./services/download-csv.service";
 import { DatePipe } from "@angular/common";
 import { CandidateService } from "./services/candidate.service";
 import { ScheduledInterviewService } from "./services/scheduled-interview.service";
 import { SlotListService } from "./services/slot-list.service";
+
+import { AvailableSlotsComponent } from "./components/available-slots/available-slots.component";
+import { EmployeeService } from "./employee.service";
+
+
 
 @NgModule({
   declarations: [
@@ -66,11 +72,13 @@ import { SlotListService } from "./services/slot-list.service";
     ScheduleInterviewComponent,
     JobsComponent,
     SidebarComponent,
-    InvalidPageComponent
+    InvalidPageComponent,
+    AvailableSlotsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -98,6 +106,7 @@ import { SlotListService } from "./services/slot-list.service";
   ],
   providers: [
     DownloadCsvService,
+    EmployeeService,
     CandidateService,
     ScheduledInterviewService,
     SlotListService,

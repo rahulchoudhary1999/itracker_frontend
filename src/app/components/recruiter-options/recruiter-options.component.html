@@ -1,85 +1,98 @@
-
 <body *ngIf="employeeType=='recruiter'">
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <!-- <button mat-icon-button>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <!-- <button mat-icon-button>
             <mat-icon (click)="sidenav.toggle();">
                 menu
             </mat-icon>
         </button> -->
-        <h1><img width="185" src="assets/logo.jpg" (click)="showWelcomePage()"></h1>
+            <h1><img width="185" src="assets/logo.jpg" (click)="showWelcomePage()"></h1>
 
-    </mat-toolbar-row>
-</mat-toolbar>
-<mat-sidenav-container>
-    <mat-sidenav #sidenav opened="true" mode="side">
-        <mat-nav-list>
-            <ul>
-               
-                <li> <b><a role="button" (click)="myProfile()"> <i class="fas fa-calendar-week" > </i> My Profile</a></b></li>
-                <li> <b><a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View Slots</a></b></li>
-                <li>  <b><a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
-                        Interview</a></b></li>
-                <li>  <b><a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
-                        Applicants</a></b></li>
-                <li>  <b><a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i> Feedbacks</a></b></li>
-                <li> <b> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></b></li>
-                <li> <b> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></b></li>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav opened="true" mode="side">
+            <mat-nav-list>
+                <ul>
 
-            </ul>
-        </mat-nav-list>
-    
-    </mat-sidenav>
-    
-    <mat-sidenav-content>
-        <div style="height: 180vh;"></div>
-    </mat-sidenav-content>
-    
-</mat-sidenav-container>
-<div id="content">
-    <div *ngIf="welcomePage">
-        <br/>
-        <h1><b>Hello Recruiter...</b></h1>
+                    <li> <b><a role="button" (click)="myProfile()"> <i class="fas fa-calendar-week"> </i> My
+                                Profile</a></b></li>
+                    <li> <b><a role="button" (click)="viewSlots()"> <i class="fas fa-calendar-week"> </i> View
+                                Slots</a></b></li>
+                    <li> <b><a role="button" (click)="scheduleInterview()"> <i class="fas fa-calendar-week"></i>Schedule
+                                Interview</a></b></li>
+                    <li> <b><a role="button" (click)="viewApplicants()"> <i class="fas fa-calendar-week"> </i> View
+                                Applicants</a></b></li>
+                    <li> <b><a role="button" (click)="viewfeedback()"> <i class="fas fa-calendar-week"> </i>
+                                Feedbacks</a></b></li>
+                    <li> <b> <a role="button" (click)="viewJobs()"> <i class="fas fa-calendar-week"> </i>Jobs</a></b>
+                    </li>
+                    <li> <b> <a role="button" (click)="viewFreeSlots()"> <i class="fas fa-calendar-week"> </i>Available
+                                Slots</a></b></li>
+                    <li> <b> <a role="button" (click)="logout()"> <i class="fas fa-calendar-week"> </i> Sign Out</a></b>
+                    </li>
+
+                </ul>
+            </mat-nav-list>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div style="height: 180vh;"></div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+    <div id="content">
+        <div *ngIf="welcomePage">
+            <br />
+            <h1><b>Hello Recruiter...</b></h1>
+        </div>
+        <div *ngIf="getview_slots()">
+            <app-interview-list></app-interview-list>
+        </div>
+        <div *ngIf="view_profile">
+
+            <br />
+            <h3><b>Employee Id :</b> &nbsp;&nbsp;{{employeeId}}</h3>
+            <br />
+            <h3><b>Name :</b>&nbsp;&nbsp;{{name}}</h3>
+            <br />
+            <h3><b>Email :</b>&nbsp;&nbsp;{{email}}</h3>
+            <br />
+            <h3><b>Contact Number :</b>&nbsp;&nbsp;{{contactNumber}}</h3>
+            <br />
+            <h3><b>Gender :</b>&nbsp;&nbsp;{{gender}}</h3>
+            <br />
+            <b></b>
+        </div>
+        <div *ngIf="getview_applicants()">
+            <app-candidate-list></app-candidate-list>
+        </div>
+        <div *ngIf="getsceduleinterview()">
+
+            <app-schedule-interview></app-schedule-interview>
+        </div>
+        <div *ngIf="getjobs()">
+            <p></p>
+            <app-jobs></app-jobs>
+        </div>
+        <div *ngIf="getfeedback()">
+            <p></p>
+            <app-feedback></app-feedback>
+        </div>
+
+        <div *ngIf = "getAvailableSlots()">
+            <app-available-slots></app-available-slots>
+        </div>
+
     </div>
-<div *ngIf="getview_slots()">
-    <app-interview-list></app-interview-list>
-</div>
-<div *ngIf="view_profile">
-
-    <br />
-    <h3><b>Employee Id :</b> &nbsp;&nbsp;{{employeeId}}</h3>
-    <br />
-    <h3><b>Name :</b>&nbsp;&nbsp;{{name}}</h3>
-    <br />
-    <h3><b>Email :</b>&nbsp;&nbsp;{{email}}</h3>
-    <br />
-    <h3><b>Contact Number :</b>&nbsp;&nbsp;{{contactNumber}}</h3>
-    <br />
-    <h3><b>Gender :</b>&nbsp;&nbsp;{{gender}}</h3>
-    <br />
-    <b></b>
-</div>
-<div *ngIf="getview_applicants()">
-    <app-candidate-list></app-candidate-list>
-</div>
-<div *ngIf="getsceduleinterview()">
-   
-    <app-schedule-interview></app-schedule-interview>
-</div>
-<div *ngIf="getjobs()">
-    <p></p>
-    <app-jobs></app-jobs>
-</div>
-<div *ngIf="getfeedback()">
-    <p></p>
-    <app-feedback></app-feedback>
-</div>
-
-</div>
 </body>
 
 <div *ngIf="employeeType!='recruiter'" style="color:red">
-    <b><h1>You have no access to this page</h1></b>
-    <b><h1>close this tab </h1></b>
+    <b>
+        <h1>You have no access to this page</h1>
+    </b>
+    <b>
+        <h1>close this tab </h1>
+    </b>
 </div>
-
