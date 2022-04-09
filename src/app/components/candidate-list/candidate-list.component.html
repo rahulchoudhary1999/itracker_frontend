@@ -9,7 +9,7 @@
              <th><h2>Email</h2></th>
              <th><h2>Contact Number</h2></th>
              <th><h2>Resume Link</h2></th>
-            
+             <th><h2>Schedule An Interview</h2></th>
          </tr>
          </thead>
          <tbody>
@@ -19,6 +19,7 @@
                  <td>{{c.email}}</td>
                  <td>{{c.contactNo}}</td>
                  <td>{{c.resumeLink}}</td>
+                 <td><button type="button" (click)="schedule()">Schedule</button></td>
              </tr>
          </tbody>
 
@@ -27,6 +28,9 @@
         </div>
        
     </table>
+    <div *ngIf="getschedule()">
+        <app-schedule-interview></app-schedule-interview>
+    </div>
  </div>
  <!--
  <body>

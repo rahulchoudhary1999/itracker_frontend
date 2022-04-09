@@ -11,11 +11,11 @@
                          
                         
                          <div class="form-group">
-                            <label><h2>Enter Candidate Email </h2></label>
+                            <label><h2>Enter Applicant Email </h2></label>
                             <input type="email" class="form-control" id="candidateemail" name="candidateemail" placeholder="Enter Candidate Email"  required minlength="1" #input1 [(ngModel)]="candidateEmail">
                          </div>
                          <div class="form-group">
-                            <label><h2>Enter Employee Email</h2></label>
+                            <label><h2>Enter Panelist Email</h2></label>
                             <input type="email" class="form-control"  id="empemail" name="empemail" placeholder="Enter Employee Email" #input2 [(ngModel)]="employeeEmail">
                          </div>
                          <div class="form-group">
@@ -29,7 +29,7 @@
                        
                         <p></p>
                          <h1>
-                             <button type="submit" class="button" (click)="addinterview()">Schedule</button>
+                             <button type="submit" class="button" (click)="getCandidate()">Schedule</button>
                          </h1>
                          <p id="show_success"> </p>
                       </form>

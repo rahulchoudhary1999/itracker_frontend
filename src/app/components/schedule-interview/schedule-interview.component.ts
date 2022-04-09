@@ -19,6 +19,8 @@ export class ScheduleInterviewComponent implements OnInit {
   interview: ScheduledInterviews = new ScheduledInterviews();
   candidateEmail : string;
   candidate : Candidate;
+  candidateId : number;
+  employeeId : string;
   slots : SlotList[];
   employee : Employee;
   employeeEmail : string;
@@ -30,12 +32,6 @@ export class ScheduleInterviewComponent implements OnInit {
  currentTime : Time;
   ngOnInit(): void {
   
-  }
- 
-  validate() {
-    if (this.interview.candidateId == null || this.interview.empId == null)
-      return false;
-    return true;
   }
   checkinterview(){
     console.log(this.interview.candidateId,this.interview.date);
@@ -55,7 +51,57 @@ export class ScheduleInterviewComponent implements OnInit {
     )
 
   }
-  
+  getCandidate(){
+    this.candidateService.getCandidateByEmail(this.candidateEmail).subscribe(
+      data => {
+        this.candidate=data;
+        if(this.candidate == null)
+        {
+          alert("Candidate With This Email Doesn't Exist");
+          return;
+        }
+        //checking if this selected candidate has already scheduled interview in same day or not.
+        this.InterviewService.getScheduledinterviewsByCid(this.candidate.candidateID).subscribe(
+          data => {
+            this.list = data;
+            
+            for(var sch of this.list){
+              if(sch.candidateId == this.candidate.candidateID && sch.date == this.interview.date)
+              {
+                this.flg=true;
+                alert("Selected Applicant Has Already Scheduled A Slot On Selected Day.")
+              break;
+              }
+            }
+            this.interview.candidateId=this.candidate.candidateID;
+        this.candidateId=this.interview.candidateId;
+        if(this.flg==false)
+        this.getEmployee();
+           
+          }
+        )
+        
+      }
+    )
+
+  }
+  getEmployee(){
+    this.employeeservice.getEmployeeByEmail(this.employeeEmail).subscribe(
+      data=>{
+        this.employee=data;
+        if(this.employee == null || this.employee.employeeType== "recruiter")
+        {
+          alert("Panelist With This Email Doesn't Exist");
+          return;
+        }
+        this.interview.empId=this.employee.empId;
+        this.employeeId=this.interview.empId;
+        console.log("in",this.interview.empId);
+        if(this.flg == false)
+        this.addinterview();
+      }
+    )
+  }
   addinterview() {
     //this.checkinterview();
     this.interview.round = "R1";
@@ -67,16 +113,22 @@ export class ScheduleInterviewComponent implements OnInit {
     this.candidateService.getCandidateByEmail(this.candidateEmail).subscribe(
       data => {
         this.candidate=data;
-        this.interview.candidateId=this.candidate.candidateId;
+        
+        this.interview.candidateId=this.candidate.candidateID;
+        this.candidateId=this.interview.candidateId;
+        console.log("in",this.interview.candidateId);
       }
     )
     this.employeeservice.getEmployeeByEmail(this.employeeEmail).subscribe(
       data=>{
         this.employee=data;
+       
         this.interview.empId=this.employee.empId;
+        this.employeeId=this.interview.empId;
+        console.log("in",this.interview.empId);
       }
     )
-    
+    /*
     this.slotsService.getSlotList().subscribe(
       data => {
         this.slots = data;
@@ -92,18 +144,16 @@ export class ScheduleInterviewComponent implements OnInit {
         }
       }
     )
-    
+    */
+   
     //console.log(this.interview.date,this.interview.time,this.candidateEmail,this.employeeEmail);
     const app = document.getElementById("show_success");
 
     const p = document.createElement("h2");
-    /*
+    
     p.textContent = "Slot Added Successfully!";
       if(this.flg==false)
     app?.appendChild(p);
-    */
-    if(this.interview.candidateId == 0 || this.interview.empId==null)
-    return;
     
     this.InterviewService.addScheduledinterviews(this.interview).subscribe(error => this.errormsg = error);
   }

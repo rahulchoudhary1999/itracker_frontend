@@ -41,6 +41,13 @@ export class CandidateListComponent implements OnInit {
   ngOnInit(): void {
     this.listOfCandidates();
   }
+  sc : boolean =false;
+  schedule(){
+    this.sc=true;
+  }
+  getschedule(){
+    return this.schedule;
+  }
   listOfCandidates() {
     this.candidateService.getCandidates().subscribe(
       data => {
